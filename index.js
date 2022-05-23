@@ -1,14 +1,16 @@
 const express = require('express');
 const mongoDB = require('./config/db');
 const PostsModel = require('./models/PostsModel');
+const cors = require('cors')
 
 const app = express();
 const port = process.env.PORT || 5000;
 const path = require('path');
-
+app.use(cors());
 
 const connectDB = require('./config/db');
 const PostRouter = require('./routes/PostRouter');
+const { use } = require('./routes/PostRouter');
 connectDB();
 
 const PORT = process.env.PORT || 5000;
